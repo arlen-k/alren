@@ -1,0 +1,144 @@
+/*App.vue*/
+<template>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <h1>在线翻译</h1>
+    <h4 class="mm-text">快捷/简单/高效</h4>
+    <fanyi v-on:chuanDi="home"></fanyi>
+    <show v-text="translatedText"></show>
+  </div>
+</template>
+
+<script>
+	import Fanyi from './components/fanyi'
+	import Show from './components/show'
+		
+	export default {
+	  name: 'app',
+	  components:{
+	  	 Fanyi,Show
+	  },
+	  data(){
+	  	 return{
+	  	 	  translatedText:''
+	  	 }
+	  },
+	  methods:{
+	  	 home(text,language){     this.$http.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20170911T034409Z.9cbd5b902f90a20c.458ffe21675d99ecccf0aadff2dfd4219e222633&lang='+language+'&text='+text).then((response)=>{
+	             this.translatedText=response.body.text[0];
+	  	 	   })
+	  	 }
+	  }
+	}
+</script>
+<style>
+	
+</style>
+/*main.js文件代码*/
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
+Vue.config.productionTip = false
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: { App }
+})
+/*router   ->index.js*/
+import Vue from 'vue'
+import Router from 'vue-router'
+import Hello from '@/components/Hello'
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'Hello',
+      component: Hello
+    }
+  ]
+})
+
+/*compontents ->fanyi.vue*/
+<template>
+  <div id="fanyi">
+  	  <form v-on:submit="fanyiMethods">
+  	  	<input class="ball-spin-fade-loader" type="text" v-model="tempText" placeholder="输入翻译文字"/>  	  	
+  	  	<select v-model="language">  	  		
+  	  		<option value="en">English</option>  	  		
+  	  		<option value="ru">俄罗斯</option>
+  	  		<option value="ko">韩语</option>
+  	  		<option value="ja" selected = "selected">日语</option>   	  		
+  	  	</select>
+  	  	<input class="login-btn" type="submit" value="翻译"/>
+  	  </form>
+  </div>
+</template>
+
+<script>
+	export default{
+		name:'fanyi',
+		data(){
+			return{
+				tempText:'',
+				language:''
+			}
+		},
+		methods:{
+			fanyiMethods(e){
+				this.$emit('chuanDi',this.tempText,this.language);
+				e.preventDefault();
+			}
+		}
+	}
+</script>
+<style>
+	#fanyi{
+		width: 400px;
+		margin: auto;
+		background: white;
+	
+		border-radius: 20px;
+	}
+	*{
+		border: 0px;
+	}
+	 input{
+	 	border-radius: 10px;
+	 
+	 }
+</style>
+/*compontents ->show.vue*/
+<template>
+	<div id="show">
+		<h2>{{translatedText}}</h2>
+	</div>
+	
+</template>
+
+<script>
+	export default{
+		name:'show',
+		props:['translatedText']
+	}
+</script>
+
+<style>
+	#show{
+		background: white;		 		 
+		margin: auto;
+		line-height: 30px;
+		border-radius: 50%;
+	}
+</style>
+
+
