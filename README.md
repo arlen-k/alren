@@ -1,3 +1,21 @@
-# alren
-这个文件当前正处于测试阶段
-这个项目库是我用来，存放vue 框架的，这里的框架使用技术栈为：iview+vue+vuex+less+axios+echtas...  功能会尽量用最新的技术实现，欢迎大家学习交流。。我的邮箱是：935567738@qq.com
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+
+# run unit tests
+npm run unit
+
+# run all tests
+npm test
+```
