@@ -1,0 +1,93 @@
+@import '../theme/theme01.less';
+@import './icon.less';
+@import './button.less';
+@import './customer.less';
+
+header{
+    height:70px;
+    background:@theme_background_color;
+    color:#fff;
+}
+::-webkit-scrollbar{
+    width:3px;
+}
+
+/*global css*/
+.content{
+    height:100vh;
+    padding-top:70px;
+    margin-top:-70px;
+    display:flex;
+    .position{
+      position:absolute;
+      top:0;
+      bottom:0;
+    }
+    .menu{
+        background:@menu_background_color;
+        width:240px;
+        overflow-y: auto;
+    }
+    .main{
+        flex:1;
+        padding: @px_20 30px;
+        background:@main_background_color;
+        overflow-y: auto;
+        .container{
+            background:@container_background_color;
+            margin:@px_20 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        .panel{
+            background:@container_background_color;
+            padding:30px 40px;
+            margin:@px_20 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+
+.flex{
+    display:flex;
+    align-items: center;
+    .flex_item{
+        flex:1;
+    }
+
+}
+.font_size_12{font-size:@px_12}
+.font_size_13{font-size:@px_13}
+.font_size_14{font-size:@px_14}
+.font_size_15{font-size:@px_15}
+.font_size_16{font-size:@px_16}
+.font_size_17{font-size:@px_17}
+.font_size_18{font-size:@px_18}
+.font_size_19{font-size:@px_19}
+.font_size_20{font-size:@px_20}
+.font_size_21{font-size:@px_21}
+.font_size_22{font-size:@px_22}
+
+.font_size_12{font-size:@px_12}
+.font_size_13{font-size:@px_13}
+.font_size_14{font-size:@px_14}
+.font_size_15{font-size:@px_15}
+.font_size_16{font-size:@px_16}
+.font_size_17{font-size:@px_17}
+.font_size_18{font-size:@px_18}
+.font_size_19{font-size:@px_19}
+.font_size_20{font-size:@px_20}
+.font_size_21{font-size:@px_21}
+.font_size_22{font-size:@px_22}
+
+.pad_5{padding:@px_5}
+.pad_10{padding:@px_10}
+.pad_15{padding:@px_15}
+.pad_20{padding:@px_20}
+.pad_10_20{padding:@px_10 @px_20}
+
+.mar_b_5{margin-bottom:@px_5;}
+.mar_b_10{margin-bottom:@px_10;}
+.mar_b_15{margin-bottom:@px_15;}
+.mar_auto{margin:auto;}
+
