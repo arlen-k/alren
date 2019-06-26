@@ -4,7 +4,7 @@ let mixin={
       params:{
         appId:this.$utils.Session.get('appId'),
         appOpenId:this.$utils.Storage.get('appOpenId'),
-        userName:'', //  测试 19911110001
+        userName:'', //  测试 
         password:'',// 110001
         registerSource:4
       },
