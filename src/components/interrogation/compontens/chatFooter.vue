@@ -31,8 +31,8 @@
 	  </div>
     <van-swipe  class="expressionBox" v-show="chatFoorterState">
 	  	<van-swipe-item >
-	  		<template v-for="item in emojiList">
-	  			<span class='dis chatExpression' @click="choseEmoji(item)">{{item}}</span>
+	  		<template v-for="(item,i) in emojiList">
+	  			<span class="dis chatExpression" @click="choseEmoji(item)" :key="i">{{item}}</span>
 	  		</template>	
 	  	</van-swipe-item>
 		</van-swipe>
