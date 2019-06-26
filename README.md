@@ -2,6 +2,11 @@
 
 > A Vue.js project
 
+项目介绍：本项目为微信公众号，所涉及的技术为  vue+vuex+less+axios+vant+环信聊天框架，主要核心功能为运用环信配置进行聊天，涉及websoket的技术。
+交流群：723598194 
+
+
+
 ## Build Setup
 
 ``` bash
